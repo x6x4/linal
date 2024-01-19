@@ -1,0 +1,93 @@
+\documentclass[14pt]{extarticle}
+\usepackage{extsizes}
+\usepackage{geometry}
+\geometry{margin=0.5in}
+
+%% for images
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+%% language support
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+
+\usepackage{amsmath}
+\usepackage{tikz}
+
+%% hyperrefs
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\usepackage{xcolor}
+
+\title{2024}
+\author{Куся}
+\date{00.00.2024}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Nilpotency considerations}
+Let $\mathcal{J}_k$ be nilpotent matrix of order $k$. It looks like
+\[\begin{pmatrix}
+    0 & 1 & 0 & ... & 0   \\
+    0 & 0 & 1 & ... & ... \\
+    ... & 0 & ... & ... & 0 \\
+    ... & ... & ... & 0 & 1 \\
+    0 & ... & ... & 0 & 0   \\
+\end{pmatrix}
+\] \\
+The main feature is that nilpotent matrices are degrees of each other. 
+Let's prove the main thing: that
+$\mathcal{J}_k$ is a nilpotent matrix of order $k$.
+\\
+Proof: \\
+\textbf{Base case:} the \(\mathcal{J}_1 = \begin{pmatrix}
+    0\\
+\end{pmatrix}\) is nilpotent matrix of order 1.\\
+\textbf{Induction step:}\\
+Consider matrices of order $n$. 
+Notice that $\mathcal{J}_m * \mathcal{J}_n = \mathcal{J}_{m-1}, \ m \leq n$
+(because the last row of $\mathcal{J}_m$ always gives zero, and all 
+other rows match the columns of larger matrix). 
+\[\begin{pmatrix}
+    0 & 0 & 0 & \textcolor{red}{1} & 0 & 0 \\
+    0 & 0 & 0 & 0 & \textcolor{red}{1} & 0 \\
+    0 & 0 & 0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 \\
+\end{pmatrix}
+\begin{pmatrix}
+    0 & 1 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 1 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1 & 0 & 0 \\
+    0 & 0 & 0 & 0 & \textcolor{red}{1} & 0 \\
+    0 & 0 & 0 & 0 & 0 & \textcolor{red}{1} \\
+    0 & 0 & 0 & 0 & 0 & 0 \\
+\end{pmatrix} = 
+\begin{pmatrix}
+    0 & 0 & 0 & 0 & \textcolor{red}{1} & 0 \\
+    0 & 0 & 0 & 0 & 0 & \textcolor{red}{1} \\
+    0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 \\
+\end{pmatrix}
+\] \\
+$$ (\mathcal{J}_k * \mathcal{J}_k) * ... * \mathcal{J}_k 
+= \mathcal{J}_{k-1}  * ... * \mathcal{J}_k = ...$$
+$\mathcal{J}_k^k = \mathcal{J}_{k-1} * \mathcal{J}_k^{k-2} = 
+\mathcal{J}_{k-(d-1)} * \mathcal{J}_k^{k-d} = 
+\mathcal{J}_1 * \mathcal{J}_k^0 \ \ (d = k) = 0 * E = 0 \ \ \forall k > 0,
+\ q.e.d.$
+
+\end{document}
