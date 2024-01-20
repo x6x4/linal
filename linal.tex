@@ -13,6 +13,7 @@
 \usepackage[english,russian]{babel}
 
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{tikz}
 
 %% hyperrefs
@@ -33,6 +34,54 @@
 \begin{document}
 \maketitle
 \tableofcontents
+
+\section{1.	Определение унитарного и евклидова пространств. 
+Примеры. Элементарные свойства скалярного произведения. 
+Вид скалярного произведения в базисе.}
+
+$V$ - линейное пространство над полем $P$, где $P$ - либо 
+$\mathbb{R}$, либо $\mathbb{C}$. Отображение 
+$$(,): V \times V \rightarrow P $$
+называется \textbf{скалярным произведением}, если оно удовлетворяет 
+следующим аксиомам: для любых $x, y, z \in V$ и любого $\alpha \in P$
+\begin{itemize}
+  \item 1) $(x,y) = \bar{(y,x)}$
+  \item 2) $(\alpha x, y) = \alpha (x,y)$
+  \item 3) $(x+y, z) = (x, z) + (y, z)$
+  \item 4) $(x,x) \geq 0 \ \ \forall x \in V, \\
+            (x,x) = 0 \Leftrightarrow x = \theta$
+\end{itemize}
+Число $(x,y)$ называется \textbf{скалярным произведением векторов} 
+$x$ и $y$, аксиомы 1-4 называются \textbf{аксиомами скалярного 
+произведения}. \\
+\textsl{Замечание:} из 1) следует, что скалярный квадрат вещественен.\\\\
+\textbf{Евклидово пространство} - вещественное ($P = \mathbb{R}$) линейное 
+пространство со скалярным произведением.\\
+\textbf{Унитарное пространство} - комплексное ($P = \mathbb{C}$) линейное 
+пространство со скалярным произведением.\\\\
+Примеры:
+\begin{itemize}
+  \item $V_n$ - геометрическое пространство, 
+  СП $(\bar a, \bar b) = |\bar a||\bar b|cos \angle (\bar a, \bar b)$
+  \item арифметические пространства $\mathbb{R}^n$ и $\mathbb{C}^n$,
+  \textsl{естественные скалярные произведения:}
+  $$(x,y) = \sum_{i=1}^{n} x_i y_i, \ \ x,y \in \mathbb{R}^n $$
+  $$(x,y) = \sum_{i=1}^{n} x_i \bar y_i, \ \ x,y \in \mathbb{C}^n $$
+  \item функциональное пространство $C[0,1]$, СП:
+  $$(f,g) = \int_{0}^{1} f(x) g(x) dx $$ 
+\end{itemize}
+Свойства СП, вытекающие из аксиом: 
+\begin{itemize}
+  \item $1^\circ.\ (x, y+z) = (x,y) + (x, z), \ \forall x, y, z \in E \ (U).$ 
+  \item $2^\circ.\ (x, \alpha y) = \bar \alpha(x,y), 
+  \ \forall x, y \in E \ (U), \ \forall \alpha \in \mathbb{R} \ (\mathbb{C})$ 
+  \item $3^\circ.\ (\theta, x) = (x,\theta) = 0, \ \forall x \in E \ (U).$ 
+  \item $4^\circ.\ (x,y) = 0, \ \forall y \in E \ (U) \Leftrightarrow x = \theta.$ 
+  \item $5^\circ.\ \forall L \subset V = E\ (U) \ \ L = E\ (U)$
+\end{itemize}
+СП $(x,y)$ векторов $x,y$ линейно по первому аргументу, а в $E$ - по обоим.
+$(1^\circ, 2^\circ)$
+
 
 \section{22. 
     Серии векторов относительно линейного оператора (ЛО). Жорданова клетка. 
@@ -153,7 +202,7 @@ $\Delta(\lambda) =\begin{pmatrix}
   $\begin{cases}
     f(2) = p(2)\\
     f^{'}(2) = p^{'}(2)
-  \end{cases} \rightarrow 
+  \end{cases} \Rightarrow 
   \begin{cases}
     e^2 = 2p_1 + p_0\\
     e^2 = p_1
